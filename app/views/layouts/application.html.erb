@@ -11,10 +11,11 @@
   </head>
 
   <body>
-    <%= render "navbar" %>
+    <%= render "shared/navbar" %>
     <br>
     <div class="container col-6">
       <%= yield %>
     </div>
+    <%= render "shared/footer" %>
   </body>
 </html>

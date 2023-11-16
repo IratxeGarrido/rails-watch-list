@@ -1,10 +1,12 @@
 <h1><%= @list.name %></h1>
 <div class="div">
   <h2>Bookmarks</h2>
-  <% @list.bookmarks.each do |bookmark| %>
-    <h5><%= bookmark.movie_id %></h5>
-    <h5><%= bookmark.comment %></h5>
-    <%= link_to list_bookmark_path(bookmark),
+  <% @list.movies.each do |movie| %>
+    <h5><%= movie.title %></h5>
+    <h5>Rating: <%= movie.rating %></h5>
+    <% bookmark = Bookmark.find_by(movie: movie) %>
+    <%= bookmark.comment %>
+    <%= link_to bookmark_path(bookmark),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
     <i class="fa-regular fa-trash-can"></i>
     <% end %>
