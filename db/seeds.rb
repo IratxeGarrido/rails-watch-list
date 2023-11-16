@@ -14,10 +14,9 @@ base_url = conf['images']['base_url']
 file_size = conf['images']['poster_sizes'][4]
 
 movies['results'].each do |movie|
+  poster_url = base_url + file_size + movie['poster_path']
   Movie.create(title: movie['original_title'],
                overview: movie['overview'],
-               poster_url: movie['poster_path'],
-               base_url: base_url,
-               file_size: file_size,
+               poster_url: poster_url,
                rating: movie['vote_average'])
 end

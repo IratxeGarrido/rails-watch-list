@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_16_144334) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_16_102205) do
   create_table "bookmarks", force: :cascade do |t|
     t.text "comment"
     t.integer "list_id", null: false
@@ -34,8 +34,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_16_144334) do
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "base_url"
-    t.string "file_size"
   end
 
   add_foreign_key "bookmarks", "lists"

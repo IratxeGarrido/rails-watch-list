@@ -4,14 +4,14 @@
   <% @list.bookmarks.each do |bookmark| %>
     <h5><%= bookmark.movie_id %></h5>
     <h5><%= bookmark.comment %></h5>
-    <%= link_to list_bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+    <%= link_to list_bookmark_path(bookmark),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
     <i class="fa-regular fa-trash-can"></i>
     <% end %>
     <hr class="hr" />
   <% end %>
 </div>
 <div class="div">
-      <%# <%= link_to "Add review", new_restaurant_review_path(@restaurant) %>
       <%= link_to "Back to lists", lists_path %>
       <%= link_to "Add new bookmark", new_list_bookmark_path(@list) %>
   </div>
