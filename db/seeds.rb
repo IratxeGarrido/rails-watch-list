@@ -2,8 +2,6 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 require 'json'
 require 'rest-client'
-require 'uri'
-require 'net/http'
 
 Movie.destroy_all
 

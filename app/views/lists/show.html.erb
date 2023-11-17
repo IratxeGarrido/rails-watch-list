@@ -1,6 +1,8 @@
 <%= render "lists/banner", list: @list %>
-<div class="container col-6">
-  <%= link_to "Add new bookmark", new_list_bookmark_path(@list), class: "btn btn-flat" %>
+<div class="d-flex flex-row-reverse">
+    <div class="p-4">
+      <%= link_to "Add new bookmark", new_list_bookmark_path(@list), class: "btn btn-flat" %>
+    </div>
 </div>
 
 <div class="cards">
