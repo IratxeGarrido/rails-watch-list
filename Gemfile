@@ -55,6 +55,9 @@ gem 'rest-client'
 # Image uplaod
 gem "cloudinary"
 
+gem "pg"
+
+# gem 'mysql2', '~> v0.3.18'
 
 
 group :development, :test do
