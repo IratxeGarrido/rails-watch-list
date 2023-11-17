@@ -1,19 +1,12 @@
-<h1><%= @list.name %></h1>
-<div class="div">
-  <h2>Bookmarks</h2>
-  <% @list.movies.each do |movie| %>
-    <h5><%= movie.title %></h5>
-    <h5>Rating: <%= movie.rating %></h5>
-    <% bookmark = Bookmark.find_by(movie: movie) %>
-    <%= bookmark.comment %>
-    <%= link_to bookmark_path(bookmark),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-    <i class="fa-regular fa-trash-can"></i>
-    <% end %>
-    <hr class="hr" />
+<%= render "lists/banner", list: @list %>
+<div class="container col-6">
+  <%= link_to "Add new bookmark", new_list_bookmark_path(@list), class: "btn btn-flat" %>
+</div>
+
+<div class="cards">
+  <% @list.bookmarks.each do |bookmark| %>
+    <%= render "bookmarks/card", list: @list, bookmark: bookmark %>
   <% end %>
 </div>
 <div class="div">
-      <%= link_to "Back to my lists", lists_path, class: "btn btn-ghost" %>
-      <%= link_to "Add new bookmark", new_list_bookmark_path(@list), class: "btn btn-flat" %>
-  </div>
+</div>

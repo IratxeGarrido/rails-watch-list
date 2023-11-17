@@ -1,0 +1,14 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://picsum.photos/1000?grayscale);">
+  <div class="container">
+    <h1><strong><%= list.name %></strong></h1>
+    <% if list.movies.count == 1 %>
+    <div class="btn btn-flat">
+      <%= "#{list.movies.count} Movie" %>
+    </div>
+    <% else %>
+      <div class="btn btn-flat">
+      <%= "#{list.movies.count} Movies" %>
+    </div>
+    <% end %>
+  </div>
+</div>

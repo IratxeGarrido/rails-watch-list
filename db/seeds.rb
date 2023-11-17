@@ -5,6 +5,8 @@ require 'rest-client'
 require 'uri'
 require 'net/http'
 
+Movie.destroy_all
+
 response = RestClient.get 'https://tmdb.lewagon.com/movie/top_rated'
 movies = JSON.parse(response)
 
@@ -18,5 +20,5 @@ movies['results'].each do |movie|
   Movie.create(title: movie['original_title'],
                overview: movie['overview'],
                poster_url: poster_url,
-               rating: movie['vote_average'])
+               rating: movie['vote_average'].round(1))
 end
