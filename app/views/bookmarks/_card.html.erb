@@ -1,15 +1,21 @@
 <div class="card-trip">
   <img src=<%= bookmark.movie.poster_url %> />
   <div class="card-trip-infos">
-    <div>
+    <div class="div">
       <h2><%= bookmark.movie.title %> - <%= bookmark.movie.rating %> <i class="fa-solid fa-star" style="color: #ffd43b;"></i></h2>
       <%# <% bookmark = Bookmark.find_by(movie: movie) %>
       <p><%= bookmark.movie.overview %></p>
-      <p><%= bookmark.comment%></p>
-      <%= link_to bookmark_path(bookmark),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-        <i class="fa-regular fa-trash-can"></i>
-      <% end %>
+      <div class="d-flex mt-2 justify-content-between">
+        <div class="p-1">
+          <p><i class="fa-solid fa-quote-left"></i> <strong><%= bookmark.comment%></strong></p>
+        </div>
+        <div class="p-1">
+          <%= link_to bookmark_path(bookmark),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <i class="fa-regular fa-trash-can" style="color: #d23433"></i>
+        <% end %>
+        </div>
+    </div>
     </div>
   </div>
 </div>
