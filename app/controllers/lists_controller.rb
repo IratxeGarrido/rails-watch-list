@@ -7,7 +7,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    @lsit = List.new
+    @review = Review.new
   end
 
   def new
