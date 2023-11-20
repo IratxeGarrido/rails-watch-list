@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-around">
+  <div class="col-4">
+    <h3>Reviews</h3>
+    <% @list.reviews.each do |review| %>
+    <div class="div">
+      <% review.rating.times do %>
+        <i class="fa-solid fa-star" style="color: #ffd43b;"></i>
+      <% end %>
+      <div class="div">
+        <%= review.comment %>
+      </div>
+      <hr>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="bg-light bg-gradient p-4 col-5">
+    <h2>Add your review</h2>
+    <%= render "reviews/form", review: @review, list: @list %>
+  </div>
+</div>

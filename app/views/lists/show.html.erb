@@ -1,32 +1,23 @@
 <%= render "lists/banner", list: @list %>
+
 <div class="d-flex flex-row-reverse">
     <div class="p-4">
       <%= link_to "Add new bookmark", new_list_bookmark_path(@list), class: "btn btn-flat" %>
     </div>
 </div>
 
+<div class="d-flex flex-column justify-content-around">
 <div class="cards">
   <% @list.bookmarks.each do |bookmark| %>
     <%= render "bookmarks/card", list: @list, bookmark: bookmark %>
   <% end %>
 </div>
-<div class="div">
+
+<div class="py-4">
+  <hr>
 </div>
 
-
-<div class="d-flex">
-  <div class="div">
-    <h3>Reviews</h3>
-    <% @list.reviews.each do |review| %>
-    <div class="div">
-      <%= review.rating %>
-      <%= review.comment %>
-    </div>
-  </div>
-<% end %>
-
-  <div class="div">
-  <h1>Add your review</h1>
-  <%= render "reviews/form", review: @review, list: @list %>
+<div class="p-4">
+  <%= render "reviews/show" %>
 </div>
 </div>
