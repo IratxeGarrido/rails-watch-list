@@ -1,11 +1,6 @@
 <%= simple_form_for [list, review] do |f| %>
   <%= f.input :comment %>
   <%# <%= f.input :rating %>
-  <div class="rating">
-      <%= f.collection_radio_buttons(:rating, [[5],[4],[3],[2],[1]], :first, :last) do |star| %>
-        <%= star.radio_button %>
-        <%= star.label(class: "text-white") %>
-      <% end %>
-    </div>
+  <%= f.input :rating, collection: (1..5).to_a, input_html: {data: {controller: "star-rating"}} %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

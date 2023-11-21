@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[create]
   end
   resources :bookmarks, only: :destroy
+  resources :reviews, only: :destroy
 end
