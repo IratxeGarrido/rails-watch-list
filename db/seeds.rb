@@ -22,3 +22,14 @@ movies['results'].each do |movie|
                poster_url: poster_url,
                rating: movie['vote_average'].round(1))
 end
+
+res = RestClient.get 'https://tmdb.lewagon.com/movie/popular'
+popular_movies = JSON.parse(res)
+
+popular_movies['results'].each do |movie|
+  poster_url = base_url + file_size + movie['poster_path']
+  Movie.create(title: movie['original_title'],
+               overview: movie['overview'],
+               poster_url: poster_url,
+               rating: movie['vote_average'].round(1))
+end
